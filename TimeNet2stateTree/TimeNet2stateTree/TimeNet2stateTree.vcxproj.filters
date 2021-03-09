@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TimeNet2stateTree.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="isNewNode.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Completecrosslinkedlist .cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DataRead.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FireInterval.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="IsEnable.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CnectTwin.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="destory.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="IsGoal.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="JudgeGoal.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="InitialRootNode.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateNode.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="IsDeadlock.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CnectFather.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CnectSon.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateNextNode.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdateM.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="updateResidenceTime.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="InitialReachTree.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OutPut.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Tree2HStar.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="optimal.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="deleteSameNode.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GoalH.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BackTrans.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FindGMin.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Completecrosslinkedlist.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DataRead.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="isNewNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FireInterval.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="IsEnabled.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CnectTwin.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="destory.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="JudgeGoal.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="IsGoal.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="InitialRootNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="IsDeadlock.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CnectFather.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CnectSon.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateNextNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdateM.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="updateResidenceTime.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="InitialReachTree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OutPut.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Tree2HStar.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="optimal.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="deleteSameNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GoalH.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FindGMin.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BackTransH.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

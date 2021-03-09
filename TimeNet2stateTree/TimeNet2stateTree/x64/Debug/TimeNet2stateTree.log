@@ -1,0 +1,5 @@
+﻿  OutPut.cpp
+D:\work\vs2019程序\TimeNet2stateTree\TimeNet2stateTree\TreeNode.h(43,2): warning C4091: “typedef ”: 没有声明变量时忽略“NetState”的左侧
+D:\work\vs2019程序\TimeNet2stateTree\TimeNet2stateTree\TreeNode.h(114,2): warning C4091: “typedef ”: 没有声明变量时忽略“Tree”的左侧
+D:\work\vs2019程序\TimeNet2stateTree\TimeNet2stateTree\OutPut.cpp(119,17): warning C4477: “fprintf”: 格式字符串“%.2f”需要类型“double”的参数，但可变参数 2 拥有了类型“int”
+  TimeNet2stateTree.vcxproj -> D:\work\vs2019程序\TimeNet2stateTree\x64\Debug\TimeNet2stateTree.exe

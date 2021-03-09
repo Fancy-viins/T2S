@@ -1,0 +1,6 @@
+﻿  OutPut.cpp
+e:\timenet2statetree\timenet2statetree\timenet2statetree\treenode.h(78): warning C4091: “typedef ”: 没有声明变量时忽略“Tree”的左侧
+e:\timenet2statetree\timenet2statetree\timenet2statetree\output.cpp(13): warning C4101: “Q”: 未引用的局部变量
+e:\timenet2statetree\timenet2statetree\timenet2statetree\output.cpp(100): warning C4101: “Q”: 未引用的局部变量
+e:\timenet2statetree\timenet2statetree\timenet2statetree\output.cpp(235): warning C4101: “i”: 未引用的局部变量
+  TimeNet2stateTree.vcxproj -> E:\TimeNet2stateTree\TimeNet2stateTree\Debug\TimeNet2stateTree.exe
