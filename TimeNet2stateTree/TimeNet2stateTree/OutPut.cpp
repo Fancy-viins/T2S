@@ -128,11 +128,11 @@ void output(Tree *Tr)
 	printf("Num:%d\n", Tr->node_num);
 }
 
-void outputpy(Tree *Tr)
+void outputpy(Tree* Tr)
 {
 	long int i;
-	FILE *fp;
-	struct Node *P;
+	FILE* fp;
+	struct Node* P;
 	P = (*Tr).PtrHead;
 	fp = fopen("D:\\work\\vs2019程序\\TimeNet2stateTree\\Data\\outPut\\py\\211.txt", "w+");
 	printf("%s", "输出结果PY");
@@ -141,48 +141,100 @@ void outputpy(Tree *Tr)
 	{
 		//if (P->EqualG == 1)
 		//{
-			for (i = 0; i < P->NumFathers; i++)
+		for (i = 0; i < P->NumFathers; i++)
+		{
+			if (i == 0)
 			{
-				if (i == 0)
-				{
-					fprintf(fp, "%2d\t", -1);
+				fprintf(fp, "%2d\t", -1);
+			}
+			else
+			{
+				fprintf(fp, "%2d\t", 1);
+			}
+			fprintf(fp, "%d\t", P->markingID);
+			//fprintf(fp, " g");
+			//fprintf(fp, "%.1f\t", P->g);
+			//fprintf(fp, " h");
+			//fprintf(fp, "%.1f\t", P->hMin);
+			//fprintf(fp, " g+h");
+			//fprintf(fp, "%.1f\t", P->hMin + P->g);
+			fprintf(fp, "%d\t", P->PtrFathers[i]->markingID);
+			//fprintf(fp, " g");
+			//fprintf(fp, "%.1f\t", P->PtrFathers[i]->g);
+			//fprintf(fp, " h");
+			//fprintf(fp, "%.1f\t", P->PtrFathers[i]->hMin);
+			//fprintf(fp, " g+h");
+			//fprintf(fp, "%.1f\t", P->PtrFathers[i]->hMin + P->PtrFathers[i]->g);
+			fprintf(fp, "%d\t", P->PtrFiredTransitions[i]);
+			for (int j = 0; j < P->PtrFathers[i]->NumSons; j++)
+			{
+				if (P->PtrFathers[i]->Earnings != nullptr && P->PtrFathers[i]->Ptrsons[j]->markingID == P->markingID) {
+					fprintf(fp, "%.2f\t", P->PtrFathers[i]->Earnings[j]);
+					break;
 				}
-				else
-				{
-					fprintf(fp, "%2d\t", 1);
-				}
+			}
+			if (P->isGoal == 1)
+			{
+				fprintf(fp, "%2d\t", 1);
+			}
+			else
+			{
+				fprintf(fp, "%2d\t", 0);
+			}
+			if (P->isDeadlock == 1)
+			{
+				fprintf(fp, "%2d\t", 1);
+			}
+			else
+			{
+				fprintf(fp, "%2d\t", 0);
+			}
+			if (P->EqualG == 1)
+			{
+				fprintf(fp, "%2d\n", 1);
+			}
+			else
+			{
+				fprintf(fp, "%2d\n", 0);
+			}
+		}
+		if (P->NumTwin != 0)
+		{
+			for (i = 0; i < P->NumTwin; i++)
+			{
+				fprintf(fp, "%2d\t", 0);
 				fprintf(fp, "%d\t", P->markingID);
 				//fprintf(fp, " g");
 				//fprintf(fp, "%.1f\t", P->g);
 				//fprintf(fp, " h");
 				//fprintf(fp, "%.1f\t", P->hMin);
-				//fprintf(fp, " g+h");
-				//fprintf(fp, "%.1f\t", P->hMin + P->g);
-				fprintf(fp, "%d\t", P->PtrFathers[i]->markingID);
+/*				fprintf(fp, " g+h");
+				fprintf(fp, "%.1f\t", P->hMin + P->g);*/
+				fprintf(fp, "%d\t", P->PtrSame[i]->markingID);
 				//fprintf(fp, " g");
-				//fprintf(fp, "%.1f\t", P->PtrFathers[i]->g);
+				//fprintf(fp, "%.1f\t", P->PtrSame[i]->g);
 				//fprintf(fp, " h");
-				//fprintf(fp, "%.1f\t", P->PtrFathers[i]->hMin);
+				//fprintf(fp, "%.1f\t", P->PtrSame[i]->hMin);
 				//fprintf(fp, " g+h");
-				//fprintf(fp, "%.1f\t", P->PtrFathers[i]->hMin + P->PtrFathers[i]->g);
-				fprintf(fp, "%d\t", P->PtrFiredTransitions[i]);
-				if (P->isGoal == 1)
+				//fprintf(fp, "%.1f\t", P->PtrSame[i]->hMin + P->PtrSame[i]->g);
+				fprintf(fp, "%d\t", P->PtrSame[i]->PtrFathers[0]->markingID);
+				//fprintf(fp, " g");
+				//fprintf(fp, "%.1f\t", P->PtrSame[i]->PtrFathers[0]->g);
+				//fprintf(fp, " h");
+				//fprintf(fp, "%.1f\t", P->PtrSame[i]->PtrFathers[0]->hMin);
+				//fprintf(fp, " g+h");
+				//fprintf(fp, "%.1f\t", P->PtrSame[i]->PtrFathers[0]->hMin + P->PtrSame[i]->PtrFathers[0]->g);
+				fprintf(fp, "%2d\t", P->PtrSame[i]->PtrFiredTransitions[0]);
+				for (int j = 0; j < P->PtrSame[i]->PtrFathers[0]->NumSons; j++)//未考虑多个相同节点多个父节点的问题***************************************************
 				{
-					fprintf(fp, "%2d\t", 1);
+					//cout << P->PtrSame[i]->PtrFathers[0]->Ptrsons[j]->markingID << P->PtrSame[i]->markingID << endl;
+					if (P->PtrSame[i]->PtrFathers[0]->Ptrsons[j]->markingID == P->PtrSame[i]->markingID && P->PtrSame[i]->PtrFathers[0]->Earnings != nullptr) {
+						fprintf(fp, "%.2f\t", P->PtrSame[i]->PtrFathers[0]->Earnings[j]);
+						break;
+					}
 				}
-				else
-				{
-					fprintf(fp, "%2d\t", 0);
-				}
-				if (P->isDeadlock == 1)
-				{
-					fprintf(fp, "%2d\t", 1);
-				}
-				else
-				{
-					fprintf(fp, "%2d\t", 0);
-				}
-				if (P->EqualG == 1)
+				fprintf(fp, "%2d\t", i);
+				if (P->PtrSame[i]->EqualG == 1)
 				{
 					fprintf(fp, "%2d\n", 1);
 				}
@@ -190,45 +242,10 @@ void outputpy(Tree *Tr)
 				{
 					fprintf(fp, "%2d\n", 0);
 				}
+
 			}
-			if (P->NumTwin != 0)
-			{
-				for (i = 0; i < P->NumTwin; i++)
-				{
-					fprintf(fp, "%2d\t", 0);
-					fprintf(fp, "%d\t", P->markingID);
-					//fprintf(fp, " g");
-					//fprintf(fp, "%.1f\t", P->g);
-					//fprintf(fp, " h");
-					//fprintf(fp, "%.1f\t", P->hMin);
-	/*				fprintf(fp, " g+h");
-					fprintf(fp, "%.1f\t", P->hMin + P->g);*/
-					fprintf(fp, "%d\t", P->PtrSame[i]->markingID);
-					//fprintf(fp, " g");
-					//fprintf(fp, "%.1f\t", P->PtrSame[i]->g);
-					//fprintf(fp, " h");
-					//fprintf(fp, "%.1f\t", P->PtrSame[i]->hMin);
-					//fprintf(fp, " g+h");
-					//fprintf(fp, "%.1f\t", P->PtrSame[i]->hMin + P->PtrSame[i]->g);
-					fprintf(fp, "%d\t", P->PtrSame[i]->PtrFathers[0]->markingID);
-					//fprintf(fp, " g");
-					//fprintf(fp, "%.1f\t", P->PtrSame[i]->PtrFathers[0]->g);
-					//fprintf(fp, " h");
-					//fprintf(fp, "%.1f\t", P->PtrSame[i]->PtrFathers[0]->hMin);
-					//fprintf(fp, " g+h");
-					//fprintf(fp, "%.1f\t", P->PtrSame[i]->PtrFathers[0]->hMin + P->PtrSame[i]->PtrFathers[0]->g);
-					fprintf(fp, "%2d\t", P->PtrSame[i]->PtrFiredTransitions[0]);
-					fprintf(fp, "%2d\t", i);
-					if (P->PtrSame[i]->EqualG == 1)
-					{
-						fprintf(fp, "%2d\n", 1);
-					}
-					else
-					{
-						fprintf(fp, "%2d\n", 0);
-					}
-				}
-			}
+
+		}
 		//}
 		P = P->PtrOpenNext;
 	} while (P != NULL);

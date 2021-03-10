@@ -46,7 +46,7 @@ void stateTree2HStar(Tree *Tree)
 				TwinToBackDone(Tree, PtrBackNode);
 				if (PtrFatherNode->NumSons_Back == 0)//已完成所有子结点的操作，可以把改结点放入backdone链表了
 				{
-					CalcEarnings(PtrFatherNode);//计算收益Q
+					//CalcEarnings(PtrFatherNode);//计算收益Q
 					if (!InDone(Tree, PtrFatherNode))//检查是否存在backdone链表里，避免重复
 					{
 						
@@ -114,6 +114,18 @@ void stateTree2HStar(Tree *Tree)
 	if (Tree->PtrDeadlockHead != NULL)
 	{
 		CalcDeadLockH(Tree);
+	}
+	PtrBackNode = Tree->PtrBackDoneHead;
+	while (PtrBackNode != nullptr)
+	{
+		if (PtrBackNode->Earnings == nullptr)
+		{
+			CalcEarnings(PtrBackNode);
+			PtrBackNode = PtrBackNode->PtrBackDoneNext;
+		}
+		else
+			PtrBackNode = PtrBackNode->PtrBackDoneNext;
+
 	}
 	printf("Back_num:%d\n", Tree->Back_num);
 	printf("over Hstar\n");
@@ -305,7 +317,7 @@ void CalcEarnings(Node* PtrNode)
 		{
 			Q = -(PtrNode->Ptrsons[i]->g - PtrNode->g) - PtrNode->Ptrsons[i]->hMin;
 			PtrNode->Earnings[i] = Q;
-			cout << PtrNode->Ptrsons[i]->hMin << "Q=" << Q << " " << "t" << *(PtrNode->Ptrsons[i]->PtrFiredTransitions) << "   " << endl;;
+			//cout << PtrNode->Ptrsons[i]->hMin << "Q=" << Q << " " << "t" << *(PtrNode->Ptrsons[i]->PtrFiredTransitions) << "   " << endl;;
 			//PtrNode->Earnings.insert(pair<short, float>(i, Q));
 			/*if (PtrNode->PtrEarning == nullptr) 
 			{
