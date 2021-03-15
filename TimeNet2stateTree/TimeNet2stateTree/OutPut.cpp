@@ -13,7 +13,7 @@ void output(Tree *Tr)
 	struct Node *P;
 	NetState *imf;
 	P = (*Tr).PtrHead;
-	fp = fopen("D:\\work\\vs2019程序\\TimeNet2stateTree\\Data\\outPut\\back\\1001.txt", "w+");
+	fp = fopen("E:\\xh\\维余师兄程序\\Data\\outPut\\back\\1001.txt", "w+");
 	printf("%s", "输出结果ID");
 	printf("\n");
 
@@ -134,7 +134,7 @@ void outputpy(Tree* Tr)
 	FILE* fp;
 	struct Node* P;
 	P = (*Tr).PtrHead;
-	fp = fopen("D:\\work\\vs2019程序\\TimeNet2stateTree\\Data\\outPut\\py\\211.txt", "w+");
+	fp = fopen("E:\\xh\\维余师兄程序\\Data\\outPut\\py\\211.txt", "w+");
 	printf("%s", "输出结果PY");
 	printf("\n");
 	do
@@ -258,7 +258,7 @@ void outback(Tree *Tr)
 	FILE *fp;
 	struct Node *P;
 	P = (*Tr).PtrHead;
-	fp = fopen("D:\\work\\vs2019程序\\TimeNet2stateTree\\Data\\outPut\\out\\433m.txt", "w+");
+	fp = fopen("E:\\xh\\维余师兄程序\\Data\\outPut\\out\\433m.txt", "w+");
 	if (fp == NULL)
 	{
 		cout << "文件打开失败" << endl;
@@ -266,6 +266,8 @@ void outback(Tree *Tr)
 	}
 	do
 	{
+		for(int j=0;j<P->NumSons;j++)
+		{
 			for (i = 0; i < (*Tr).place_num; i++)
 			{
 				if (i != 8 && i != 17 && i != 26)
@@ -281,7 +283,10 @@ void outback(Tree *Tr)
 
 				}
 			}
-			fprintf(fp, "%.2f\n", P->hMin);
+		
+		fprintf(fp, "%d\t", P->Ptrsons[j]->PtrFiredTransitions[0]);//暂时只有一个父节点
+			fprintf(fp, "%.2f\n", P->Earnings[j]);
+		}
 		P = P->PtrOpenNext;
 	} while (P != NULL);
 	fclose(fp);
@@ -330,7 +335,7 @@ void OutputBackHTrans(Tree *Tr)
 	FILE *fp;
 	struct Node *P;
 	P = (*Tr).PtrHead;
-	fp = fopen("D:\\work\\vs2019程序\\TimeNet2stateTree\\Data\\outPut\\backh\\222mxth-change.txt", "w+");
+	fp = fopen("E:\\xh\\维余师兄程序\\Data\\outPut\\backh\\222mxth-change.txt", "w+");
 	do
 	{
 		for (i = 0; i < (*Tr).place_num; i++)
