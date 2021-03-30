@@ -13,7 +13,7 @@ void output(Tree *Tr)
 	struct Node *P;
 	NetState *imf;
 	P = (*Tr).PtrHead;
-	fp = fopen("E:\\xh\\维余师兄程序\\Data\\outPut\\back\\1001.txt", "w+");
+	fp = fopen("E:\\git\\learngit\\T2S\\TimeNet2stateTree\\Data\\outPut\\back\\222.txt", "w+");
 	printf("%s", "输出结果ID");
 	printf("\n");
 
@@ -134,7 +134,7 @@ void outputpy(Tree* Tr)
 	FILE* fp;
 	struct Node* P;
 	P = (*Tr).PtrHead;
-	fp = fopen("E:\\xh\\维余师兄程序\\Data\\outPut\\py\\211.txt", "w+");
+	fp = fopen("E:\\git\\learngit\\T2S\\TimeNet2stateTree\\Data\\outPut\\py\\222.txt", "w+");
 	printf("%s", "输出结果PY");
 	printf("\n");
 	do
@@ -258,7 +258,7 @@ void outback(Tree *Tr)
 	FILE *fp;
 	struct Node *P;
 	P = (*Tr).PtrHead;
-	fp = fopen("E:\\xh\\维余师兄程序\\Data\\outPut\\out\\433m.txt", "w+");
+	fp = fopen("E:\\git\\learngit\\T2S\\TimeNet2stateTree\\Data\\outPut\\out\\233m.txt", "w+");
 	if (fp == NULL)
 	{
 		cout << "文件打开失败" << endl;
@@ -328,14 +328,14 @@ void outback(Tree *Tr)
 	} while (P != NULL);
 	fclose(fp);*/
 }
-
+/*
 void OutputBackHTrans(Tree *Tr)
 {
 	short i;
 	FILE *fp;
 	struct Node *P;
 	P = (*Tr).PtrHead;
-	fp = fopen("E:\\xh\\维余师兄程序\\Data\\outPut\\backh\\222mxth-change.txt", "w+");
+	fp = fopen("E:\\git\\learngit\\T2S\\TimeNet2stateTree\\Data\\outPut\\backh\\222mxth-change.txt", "w+");
 	do
 	{
 		for (i = 0; i < (*Tr).place_num; i++)
@@ -372,6 +372,74 @@ void OutputBackHTrans(Tree *Tr)
 		}
 		fprintf(fp, "%.2f\n", P->hMin);
 		P = P->PtrOpenNext;
+	} while (P != NULL);
+	fclose(fp);
+}*/
+void OutputBackHTrans(Tree *Tr)
+{
+	short i;
+	FILE *fp;
+	struct Node *P;
+	P = (*Tr).PtrHead;
+	fp = fopen("E:\\git\\learngit\\T2S\\TimeNet2stateTree\\Data\\outPut\\backh\\222mxth-change.txt", "w+");
+	do
+	{
+		for (i = 0; i < (*Tr).place_num; i++)
+		{
+			if (i != 8 && i != 17 && i != 26)
+			{
+				if (P->PtrNetStateRow[i] != NULL)
+				{
+					fprintf(fp, "%d\t", P->PtrNetStateRow[i]->TokenNum);
+				}
+				else
+				{
+					fprintf(fp, "%d\t", 0);
+				}
+			}
+		}
+		for (i = 0; i < (*Tr).place_num; i++)
+		{
+			if (i == 2 || i == 4 || i == 6 || i == 11 || i == 13 || i == 15 || i == 20 || i == 22 || i == 24)
+			{
+				if (P->PtrNetStateRow[i] != NULL)
+				{
+					fprintf(fp, "%.2f\t", P->PtrNetStateRow[i]->residenceTime);
+				}
+				else
+				{
+					fprintf(fp, "%.2f\t", 0.00);
+				}
+			}
+		}
+		short* temp_firetransitions = new short[P->NumSons];//可激发变迁
+		for (int j = 0; j < P->NumSons; j++)
+		{
+			temp_firetransitions[j] = P->Ptrsons[j]->PtrFiredTransitions[0];//将所有可激发变迁的id存进数组
+		}
+		short* temp_transitions = new short[Tr->transit_num];//将所有变迁存进数组，对应可激发变迁的位置存收益，其余位置为0；
+
+		for (i = 0; i < Tr->transit_num; i++)
+		{
+			short t = 0;
+			temp_transitions[i] = 0;
+			while (t < P->NumSons)
+			{
+				if (i == temp_firetransitions[t])
+				{
+					temp_transitions[i] = P->Earnings[t];
+					break;
+				}
+				else
+					t++;
+			}
+			fprintf(fp, "%d\t", temp_transitions[i]);
+		}
+
+		fprintf(fp, "\n");
+		P = P->PtrOpenNext;
+		delete[] temp_firetransitions;
+		delete[] temp_transitions;
 	} while (P != NULL);
 	fclose(fp);
 }
