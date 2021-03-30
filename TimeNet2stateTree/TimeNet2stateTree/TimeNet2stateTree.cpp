@@ -24,13 +24,13 @@ void TimeNet2stateTree()
 
 	InitSMatrix(&C_pre);
 	printf("创建前置关联矩阵C_pre: ");
-	CreateSMatrix(&C_pre, "E:\\xh\\维余师兄程序\\Data\\pre.txt");
+	CreateSMatrix(&C_pre, "E:\\git\\learngit\\T2S\\TimeNet2stateTree\\无死锁\\pre.txt");
 	OutputSMatrix(C_pre);
 	printf("\n");
 
 	InitSMatrix(&C_post);
 	printf("创建后置关联矩阵C_post: ");
-	CreateSMatrix(&C_post, "E:\\xh\\维余师兄程序\\Data\\post.txt");
+	CreateSMatrix(&C_post, "E:\\git\\learngit\\T2S\\TimeNet2stateTree\\无死锁\\post.txt");
 	OutputSMatrix(C_post);
 	printf("\n");
 
