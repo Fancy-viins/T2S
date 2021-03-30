@@ -24,13 +24,21 @@ void TimeNet2stateTree()
 
 	InitSMatrix(&C_pre);
 	printf("创建前置关联矩阵C_pre: ");
+
 	CreateSMatrix(&C_pre, "E:\\git\\learngit\\T2S\\TimeNet2stateTree\\无死锁\\pre.txt");
+
+	CreateSMatrix(&C_pre, "E:\\GitHub\\T2S\\TimeNet2stateTree\\Data\\pre.txt");
+ 
 	OutputSMatrix(C_pre);
 	printf("\n");
 
 	InitSMatrix(&C_post);
 	printf("创建后置关联矩阵C_post: ");
+
 	CreateSMatrix(&C_post, "E:\\git\\learngit\\T2S\\TimeNet2stateTree\\无死锁\\post.txt");
+
+	CreateSMatrix(&C_post, "E:\\GitHub\\T2S\\TimeNet2stateTree\\Data\\post.txt");
+
 	OutputSMatrix(C_post);
 	printf("\n");
 
@@ -184,7 +192,7 @@ void TimeNet2stateTree_v2()
 	outback(&Tree);
 
 	//output(&Tree);
-	//outputpy(&Tree);
+	outputpy(&Tree);
 	printf("Num:%d\n", Tree.node_num);
 	end_time = clock();     //获取结束时间
 	double Times = (double)(end_time - start_time) / CLOCKS_PER_SEC;
